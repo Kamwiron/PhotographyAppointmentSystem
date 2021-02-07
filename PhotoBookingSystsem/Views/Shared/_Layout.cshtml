@@ -50,32 +50,20 @@
                 <li><a href="#portfolio">Portfolio</a></li>
                 <li><a href="#team">Team</a></li>
                 <li class="drop-down">
-                    <a href="">Packages</a>
-                    @* <ul>
-            <li><a href="#">Drop Down 1</a></li>
-            <li class="drop-down"><a href="#">Deep Drop Down</a>
-                <ul>
-                    <li><a href="#">Deep Drop Down 1</a></li>
-                    <li><a href="#">Deep Drop Down 2</a></li>
-                    <li><a href="#">Deep Drop Down 3</a></li>
-                    <li><a href="#">Deep Drop Down 4</a></li>
-                    <li><a href="#">Deep Drop Down 5</a></li>
-                </ul>
-            </li>
-            <li><a href="#">Drop Down 2</a></li>
-            <li><a href="#">Drop Down 3</a></li>
-            <li><a href="#">Drop Down 4</a></li>
-        </ul>
-                    *@
-                </li>
-                <li><a href="#contact">Contact</a></li>
-
+                 <a href="#">Sign Options</a>
+                    <ul>
+                        <li class="drop-down">
+                            <li><a href="#" type="button" onclick=showLoginForm()>LOGIN</a></li>
+                            <li><a href="#" type="button" onclick=showCreateAccountForm()>CREATE ACCOUNT</a></li>
+                       </li>
+                    </ul>                    
+                    <li><a href="#contact">Contact</a></li>
             </ul>
         </nav><!-- .nav-menu -->
 
         @* <a href="#" class="btn-get-started scrollto">Book Now</a> *@
         <!--TODO: add a pop up for this button-->
-         <a type="button"href="#header"  class="get-started-btn scrollto" onclick= showForm()>Book Now</a>
+         <a type="button"href="#header"  class="get-started-btn scrollto" onclick= showLoginForm()>Book Now</a>
 
         
  
@@ -99,51 +87,86 @@
         <h1>Dream. Compose . Capture.</h1>
         <h2>The Team that makes your dream a reality through photography.</h2>
         <div class="d-flex">
-            <a href="#header" class="btn-get-started scrollto" onclick= showForm()>Book Now</a>           
+            <a href="#header" class="btn-get-started scrollto" onclick= showLoginForm()>Book Now</a>           
         </div>
     </div>
      
+     <!--login form-->
      <div class="container">
          <div class="row">
               <div class="col offset-3">
-                 <form action="" style="display: none;" id="card_div">
+                 <form action="" style="display: none;" id="loginForm">
                     <div class="card" style="display: flex; max-width: 70%; height: 100%;">
 
                         <div class="card-header">
-                           <p class="text-center"><em>Provide your information here</em></p>
+                           <p class="text-center" style="font-weight: bold; margin-top: 20px;">USER LOGIN</em></p>
                         </div>
 
                         <div class="card-body">
                          <div class="mb-3">
-                            <label for="name" class="form-label">Name</label>
-                            <input type="text" class="form-control" id="name">
+                            <label for="email" class="form-label" style="color: #15222b;" >Email</label>
+                            <input type="text" class="form-control" id="email">
                          </div>
 
                          <div class="mb-3">
-                            <label for="contact" class="form-label">Phone Number</label>
-                            <input type="tel" class="form-control" id="phoneNumber">
+                            <label for="password" class="form-label" style="color: #15222b;">Password</label>
+                            <input type="password" class="form-control" id="password">
                          </div>
-
-                          <div class="mb-3">
-                            <label for="contact" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="email">
-                         </div>
-
-                         <div class="mb-3">
-                            <label for="contact" class="form-label">Country</label>
-                            <input type="text" class="form-control" id="country">
-                         </div>
-                        </div>
                          
                         <div class="card-footer">
-                            <button type="button" onclick= submitForm() class="btn btn-primary" style="float: right;">Submit</button>
+                         <div>
+                            <button type="button" onclick= submitLoginInfo() id="loginBtn" class="btn btn-primary" style="float: right; background: #fd3800; border: none; width: 170px; margin-top:20px">Submit</button>
+                            <button type="button" onclick= closeLoginForm() id="cancelBtn"  class="btn btn-info" style="float: right; margin-right: 10px; background: #15222b; border: none; color: white; width: 150px; margin-top: 20px">Cancel</button>
+                         </div>
                         </div>
 
                     </div> 
-                 </form>
+                </form>
               </div>
          </div>
      </div>
+
+
+     <!--create account form-->
+     <div class="container">
+         <div class="row">
+              <div class="col offset-3">
+                 <form action="" style="display: none;" id="createAccountForm">
+                    <div class="card" style="display: flex; max-width: 70%; height: 100%;">
+
+                        <div class="card-header">
+                           <p class="text-center" style="color: #15222b; font-weight: bold; margin-top: 20px;">CREATE ACCOUNT</p>
+                        </div>
+
+                        <div class="card-body">
+                         <div class="mb-3">
+                            <label for="email" class="form-label" style="color: #15222b;" >Email</label>
+                            <input type="text" class="form-control" id="email">
+                         </div>
+
+                         <div class="mb-3">
+                            <label for="password" class="form-label" style="color: #15222b;">Password</label>
+                            <input type="password" class="form-control" id="password">
+                         </div>
+
+                         <div class="mb-3">
+                            <label for="password" class="form-label" style="color: #15222b;">Confirm Password</label>
+                            <input type="password" class="form-control" id="ConfirmPassword">
+                         </div>
+                         
+                        <div class="card-footer">
+                         <div>
+                            <button type="button" id="signUpBtn"  onclick= submitNewUserInfo() class="btn btn-primary" style="float: right; background: #fd3800; border: none; width: 170px; margin-top:20px">Submit</button>
+                            <button type="button" id="cancelBtn1" onclick= closeCreateAccountForm()  class="btn btn-info" style="float: right; margin-right: 10px; background: #15222b; border: none; color: white; width: 150px; margin-top: 20px">Cancel</button>
+                         </div>
+                        </div>
+
+                    </div> 
+                </form>
+              </div>
+         </div>
+     </div>
+     
     
 
             
@@ -211,9 +234,7 @@
                                 <div class="col-lg-4 col-md-6 footer-newsletter">
                                     <h4>Our Quote</h4>
                                     <p>"FPA makes your dream a reality"</p>
-                                    <form action="" method="post">
-                                        <input type="email" name="email"><input type="submit" value="Book Us Now">
-                                    </form>
+                                   
 
                                 </div>
 
@@ -230,7 +251,7 @@
                             <!-- You can delete the links only if you purchased the pro version. -->
                             <!-- Licensing information: https://bootstrapmade.com/license/ -->
                             <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/dewi-free-multi-purpose-html-template/ -->
-                            Photograpy Team <a href="https://bootstrapmade.com/">FPA</a>
+                            Photograpy Team 
                         </div>
                     </div>
 </footer>
@@ -240,19 +261,70 @@
     <div id="preloader"></div>
 
     <script>
-     function showForm() {
-          document.getElementById("card_div").style.display = "block";
+
+    //jquery for login and create account form
+
+    //show login form
+     showLoginForm = () => {
+        $("#loginForm").slideDown("fast");
+        
+        $("#loginBtn").delay(1000).animate({zoom: '1',opacity: '0.4'}, "slow");
+        $("#loginBtn").animate({opacity: '1'}, "slow");
+
+        $("#cancelBtn").delay(1200).animate({zoom: '1',opacity: '0.4'}, "slow");
+        $("#cancelBtn").animate({opacity: '1'}, "slow");
+        
+ 
+        //close create account form if its open
+        var stateOfCreateAccountForm = $("#createAccountForm").show();
+        if(stateOfCreateAccountForm) {
+            $("#createAccountForm").hide();
+        }
+          
      }
 
+     //close login form
+     closeLoginForm = () => {
+         $("#loginForm").slideUp("fast");
+     }
 
-     function submitForm() {
-         var name = $("#name").val();
-         var phoneNumber = $("#phoneNumber").val();
-         var email = $("#email").val();
-         var country = $("#country").val();
+     // show creaet account form
+     showCreateAccountForm = () => {
+        $("#createAccountForm").slideDown("fast");
+         $("#signUpBtn").delay(1000).animate({zoom: '1',opacity: '0.4'}, "slow");
+         $("#signUpBtn").animate({opacity: '1'}, "slow");
+
+        $("#cancelBtn1").delay(1200).animate({zoom: '1',opacity: '0.4'}, "slow");
+        $("#cancelBtn1").animate({opacity: '1'}, "slow");
+
+        //close login form when its open
+        var stateOfLoginForm = $("#loginForm").show();
+        if(stateOfLoginForm){
+            $("#loginForm").hide();
+        }
+     }
+
+     //close create acount form
+     closeCreateAccountForm = () => {
+         $("#createAccountForm").slideUp("fast");
+     }
+
+     
+
+    submitNewUserInfo = () => {
+        //TODO: write conditions
+        //closeCreateAccountForm();
+    }
+
+
+     submitLoginInfo = () => {
+         //var name = $("#name").val();
+         //var phoneNumber = $("#phoneNumber").val();
+         //var email = $("#email").val();
+         //var country = $("#country").val();
 
          //alert(name + phoneNumber + email + country);
-         document.getElementById("card_div").style.display = "none";
+          //closeLoginForm();
      }
 
     
